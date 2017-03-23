@@ -29,7 +29,11 @@ def node_str(n):
     return s
 
 def node_key(n):
-    return node_str(n)
+    s = node_str(n)
+    text = (n.text or "").strip()
+    if text:
+        s += " " + text
+    return s
 
 def indent(s, level):
     return "  " * level + s
