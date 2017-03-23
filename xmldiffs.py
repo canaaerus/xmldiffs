@@ -72,9 +72,9 @@ def xmldiffs(file1, file2, diffargs=["-u"]):
     write_sorted(tmp2, tree.getroot())
     tmp2.flush()
 
-    args = [ "diff" ]
+    args = [ "kdiff3" ]
     args += diffargs
-    args += [ "--label", file1, "--label", file2 ]
+    args += [ "-L1", file1, "-L2", file2 ]
     args += [ tmp1.name, tmp2.name ]
 
     subprocess.call(args)
